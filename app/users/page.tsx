@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; // This page should always be dynamic
+
 import Spinner from "@/components/Spinner";
 import UsersComponent from "@/components/UsersComponent";
 import { auth } from "@/lib/auth";

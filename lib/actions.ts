@@ -19,6 +19,7 @@ export const createAlbum = async (data: {
       body: JSON.stringify(data),
     });
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    revalidatePath("/users");
     revalidatePath(`/users/${data.userId}`);
     revalidatePath("/albums");
     return await response.json();

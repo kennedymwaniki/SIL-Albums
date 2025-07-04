@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+export const dynamic = "force-dynamic"; // This page should always be dynamic
 import { useParams } from "next/navigation";
 import AlbumForm from "@/components/AlbumForm";
 import UserAlbums from "@/components/UserAlbums";
