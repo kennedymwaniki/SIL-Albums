@@ -1,18 +1,31 @@
-import db from "@/db/db";
-import { albums } from "./../../../db/schema";
+import { db } from "@/db/db";
+import { albums } from "@/db/schema";
 import { Hono } from "hono";
-// import { eq } from "drizzle-orm/sql/expressions/conditions";
 import { eq } from "drizzle-orm";
 
 const albumsRouter = new Hono();
 
 albumsRouter.get("/", async (c) => {
-  const albums = await db.query.albums.findMany({
-    with: {
-      photos: true,
-    },
-  });
-  return c.json(albums);
+  const userId = c.req.query("userId");
+
+  if (userId) {
+    // Filter albums by userId
+    const userAlbums = await db.query.albums.findMany({
+      where: eq(albums.userId, Number(userId)),
+      with: {
+        photos: true,
+      },
+    });
+    return c.json(userAlbums);
+  } else {
+    // Return all albums
+    const allAlbums = await db.query.albums.findMany({
+      with: {
+        photos: true,
+      },
+    });
+    return c.json(allAlbums);
+  }
 });
 albumsRouter.get("/:id", async (c) => {
   // Logic to fetch album by ID
@@ -27,9 +40,22 @@ albumsRouter.get("/:id", async (c) => {
 });
 
 albumsRouter.post("/", async (c) => {
-  const body = await c.req.json();
-  const newAlbum = await db.insert(albums).values(body).returning();
-  return c.json({ message: "Create a new album", data: newAlbum });
+  try {
+    const body = await c.req.json();
+    console.log("Received album creation request:", body);
+    const newAlbum = await db.insert(albums).values(body).returning();
+    console.log("Album created:", newAlbum);
+    return c.json({ message: "Create a new album", data: newAlbum });
+  } catch (error) {
+    console.error("Error creating album:", error);
+    return c.json(
+      {
+        error: "Failed to create album",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      500
+    );
+  }
 });
 
 albumsRouter.patch("/:id", async (c) => {

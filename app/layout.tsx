@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Hono | nextjs",
@@ -15,14 +14,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return await ClerkProvider({
-    children: (
-      <html lang="en">
-        <body className="bg-gray-100">
-          <Navbar />
-          {children}
-        </body>
-      </html>
-    ),
-  });
+  return (
+    <html lang="en">
+      <body className="bg-gray-100">
+        <Navbar />
+        {children}
+      </body>
+    </html>
+  );
 }
