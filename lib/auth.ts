@@ -57,7 +57,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async session({ session }: { session: any }) {
       try {
         const userData = await getUser(session.user.email);
-        session.user.id = userData.data.id;
+        session.user.id = userData?.id;
         return session;
       } catch (error) {
         console.error("Error fetching user data for session:", error);
