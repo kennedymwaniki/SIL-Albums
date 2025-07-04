@@ -4,9 +4,11 @@ import photosRouter from "../(modules)/photos";
 import usersRouter from "../(modules)/users";
 import albumsRouter from "../(modules)/albums";
 
+import { cors } from "hono/cors";
 // export const runtime = "edge";
 
 const app = new Hono().basePath("/api");
+app.use(cors({ origin: "*" }));
 
 app.get("/hello", (c) => {
   return c.json({
