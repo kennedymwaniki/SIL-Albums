@@ -20,7 +20,7 @@ const page = async () => {
             Our Community
           </h1>
           <p className="text-lg text-gray-600">
-            Discover amazing photographers and their photo collections
+            Discover amazing albums and their photo collections
           </p>
         </div>
 

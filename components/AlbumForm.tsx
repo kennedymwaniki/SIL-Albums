@@ -3,6 +3,7 @@
 import { createAlbum } from "@/lib/services";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 interface AlbumFormProps {
   userId: number;

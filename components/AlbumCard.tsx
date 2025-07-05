@@ -1,10 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Album } from "@/db/schema";
+import { Album, Photo } from "@/db/schema";
 
 interface AlbumWithPhotos extends Album {
-  photos?: any[];
+  photos?: Photo[];
 }
 
 interface AlbumCardProps {

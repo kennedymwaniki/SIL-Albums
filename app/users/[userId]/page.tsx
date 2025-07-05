@@ -1,5 +1,5 @@
 export const dynamic = "force-dynamic"; // This page should always be dynamic
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import AlbumForm from "@/components/AlbumForm";
 import UserAlbums from "@/components/UserAlbums";
 import LoadingSpinner from "@/components/LoadingSpinner";
@@ -17,6 +17,7 @@ const UserPage = async ({
 }) => {
   const { userId } = await params;
   const user = await getUserById(Number(userId));
+  console.log("user", user);
 
   const handleABlumCreated = () => {
     // This function can be used to refresh the albums list after creating a new album

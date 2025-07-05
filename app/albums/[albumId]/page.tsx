@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { getAlbumById, getPhotosByAlbumId } from "@/lib/services";
+import { getAlbumById } from "@/lib/services";
 import { useParams, useRouter } from "next/navigation";
 
 type Album = { id: number; title: string; description?: string };
@@ -22,6 +22,9 @@ export default function AlbumPage() {
   const [adding, setAdding] = useState(false);
   const [addError, setAddError] = useState("");
 
+  console.log("Album ID:", albumId);
+  console.log("Album Data:", album);
+
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
@@ -29,8 +32,7 @@ export default function AlbumPage() {
       try {
         const albumData = await getAlbumById(albumId);
         setAlbum(albumData);
-        const albumPhotos = await getPhotosByAlbumId(albumId);
-        setPhotos(albumPhotos);
+        setPhotos(albumData.photos || []);
       } catch (err) {
         setError("Failed to load album or photos");
       } finally {
@@ -58,9 +60,10 @@ export default function AlbumPage() {
       setNewTitle("");
       setNewUrl("");
       setShowAdd(false);
-      // Refresh photos
-      const albumPhotos = await getPhotosByAlbumId(albumId);
-      setPhotos(albumPhotos);
+      // Refresh album data to get updated photos
+      const albumData = await getAlbumById(albumId);
+      setAlbum(albumData);
+      setPhotos(albumData.photos || []);
     } catch (err) {
       setAddError("Could not add photo");
     } finally {
@@ -77,7 +80,7 @@ export default function AlbumPage() {
       <h1 className="text-2xl font-bold mb-2">{album.title}</h1>
       <p className="mb-6">{album.description}</p>
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">Photos</h2>
+        <h2 className="text-xl font-semibold"> Total Photos {photos.length}</h2>
         <button
           className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
           onClick={() => setShowAdd((v) => !v)}
