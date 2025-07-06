@@ -11,6 +11,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       clientSecret: process.env.AUTH_GOOGLE_SECRET!,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     authorized({ auth }: { auth: any }) {
       return !!auth?.user;
@@ -65,6 +66,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
     },
   },
+  // pages: {
+  //   signIn: "/login",
+  //   signOut: "/logout",
+  // },
 });
 
 export const { GET, POST } = handlers;

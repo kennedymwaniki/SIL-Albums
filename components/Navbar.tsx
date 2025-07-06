@@ -4,7 +4,10 @@ import { auth } from "@/lib/auth";
 import Link from "next/link";
 import React from "react";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await auth();
+  console;
+
   return (
     <div className="flex justify-between items-center bg-white border-b border-gray-200 px-6 py-4">
       <div className="flex items-center gap-2">
@@ -47,22 +50,20 @@ const Navbar = () => {
           </Link>
         </ul>
       </nav>
-      {/* 
+
       <div className="flex items-center gap-4">
         {session ? (
-          <Link href={`/user/${session?.user?.id}`}>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-colors">
-              Hey, {session?.user?.name}
-            </button>
-          </Link>
+          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-colors">
+            Hey, {session?.user?.name}
+          </button>
         ) : (
-          <Link href="/signin">
+          <Link href="/login">
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-colors">
               Sign In
             </button>
           </Link>
         )}
-      </div> */}
+      </div>
 
       <div className="md:hidden">
         <button className="text-gray-600 hover:text-gray-900">
