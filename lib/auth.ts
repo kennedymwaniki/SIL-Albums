@@ -13,7 +13,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    authorized({ auth }: { auth: any }) {
+    authorized({ auth }) {
       return !!auth?.user;
     },
     async signIn({ user }: { user: any }) {

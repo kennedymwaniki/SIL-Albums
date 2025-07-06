@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { auth } from "@/lib/auth";
 import Link from "next/link";
