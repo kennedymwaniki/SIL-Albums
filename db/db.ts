@@ -6,8 +6,8 @@ import * as schema from "./schema";
 console.log("Loading environment variables...");
 // dotenv.config({ path: ".env" });
 
-const DBURL =
-  "postgresql://neondb_owner:npg_UHapfsm0BJ6j@ep-weathered-paper-a9vc8zy9-pooler.gwc.azure.neon.tech/silfrontend?sslmode=require&channel_binding=require";
+const DBURL = process.env.DATABASE_URL!;
+console.log("Database URL:", DBURL);
 
 // Add better error handling
 
