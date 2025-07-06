@@ -4,10 +4,11 @@ import { auth } from "@/lib/auth";
 import Link from "next/link";
 import React from "react";
 
-const Navbar = async () => {
-  const session = await auth();
-  console;
+interface NavbarProps {
+  session: any;
+}
 
+const Navbar = ({ session }: NavbarProps) => {
   return (
     <div className="flex justify-between items-center bg-white border-b border-gray-200 px-6 py-4">
       <div className="flex items-center gap-2">
