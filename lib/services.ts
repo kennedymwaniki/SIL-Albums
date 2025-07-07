@@ -212,3 +212,25 @@ export const createAlbum = async (data: {
     throw error;
   }
 };
+
+export const getPhotos = async () => {
+  try {
+    const baseUrl = getBaseUrl();
+    const response = await fetch(`${baseUrl}/api/photos`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching photos:", error);
+    throw error;
+  }
+};

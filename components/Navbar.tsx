@@ -39,9 +39,9 @@ const Navbar = ({ session }: NavbarProps) => {
               How it Works
             </li>
           </Link>
-          <Link href="/albums">
+          <Link href="/photos">
             <li className="text-gray-600 hover:text-gray-900 cursor-pointer transition-colors">
-              Albums
+              Photos
             </li>
           </Link>
           <Link href="/users">
