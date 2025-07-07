@@ -3,6 +3,7 @@
 import { auth } from "@/lib/auth";
 import Link from "next/link";
 import React from "react";
+import SignOutButton from "./SignOutButton";
 
 interface NavbarProps {
   session: any;
@@ -54,9 +55,12 @@ const Navbar = ({ session }: NavbarProps) => {
 
       <div className="flex items-center gap-4">
         {session ? (
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-colors">
-            Hey, {session?.user?.name}
-          </button>
+          <>
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-colors">
+              Hey, {session?.user?.name}
+            </button>
+            <SignOutButton />
+          </>
         ) : (
           <Link href="/login">
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-colors">

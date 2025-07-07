@@ -1,9 +1,13 @@
 "use server";
 import { revalidatePath } from "next/cache";
-import { signIn } from "./auth";
+import { signIn, signOut } from "./auth";
 
 export async function signInAction() {
   await signIn("google", { redirectTo: "/" });
+}
+
+export async function signOutAction() {
+  await signOut({ redirectTo: "/" });
 }
 
 export const createAlbum = async (data: {
