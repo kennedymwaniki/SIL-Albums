@@ -1,5 +1,3 @@
-// "use server";
-
 import { User } from "@/db/schema";
 
 const getBaseUrl = () => {
