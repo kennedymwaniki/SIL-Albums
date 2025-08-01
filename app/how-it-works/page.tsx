@@ -300,16 +300,13 @@ const page = () => {
             Ready to Get Started?
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join our community today and start organizing your photos in a
-            beautiful, intuitive way. Create your first album and begin your
-            journey!
+            Join our community of users today and start organizing your photos
+            in a beautiful, intuitive way. Create your first album and begin
+            your journey!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-lg text-lg transition-all duration-200 shadow-lg hover:shadow-xl">
               Sign Up Now
-            </button>
-            <button className="border-2 border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 font-semibold px-8 py-3 rounded-lg text-lg transition-colors duration-200 bg-white hover:bg-gray-50">
-              View Demo
             </button>
           </div>
         </div>
