@@ -8,7 +8,11 @@ const usersRouter = new Hono();
 usersRouter.get("/", async (c) => {
   const Users = await db.query.users.findMany({
     with: {
-      albums: true,
+      albums: {
+        with: {
+          photos: true,
+        },
+      },
     },
   });
   return c.json({ message: "Fetch all users", data: Users });
@@ -19,7 +23,11 @@ usersRouter.get("/:id", async (c) => {
   const User = await db.query.users.findFirst({
     where: eq(users.id, id),
     with: {
-      albums: true,
+      albums: {
+        with: {
+          photos: true,
+        },
+      },
     },
   });
   if (!User) {
