@@ -16,7 +16,7 @@ export const createAlbum = async (data: {
   description: string;
 }) => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/albums`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -38,7 +38,7 @@ export const updatePhoto = async (
   data: { title?: string; url?: string }
 ) => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/photos/${photoId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },

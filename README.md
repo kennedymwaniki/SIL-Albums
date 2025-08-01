@@ -76,7 +76,7 @@ PhotoAlbum is a modern, full-stack photo management platform built with cutting-
    DATABASE_URL=postgresql://username:password@host:port/database
 
    # NextAuth
-   NEXTAUTH_URL=http://localhost:3000
+   NEXT_PUBLIC_AUTH_URL=http://localhost:3000
    NEXTAUTH_SECRET=your-secret-key
 
    # Google OAuth
@@ -517,7 +517,7 @@ Create a `.env.local` file with the following variables:
 DATABASE_URL=postgresql://username:password@host:port/database
 
 # NextAuth Configuration
-NEXTAUTH_URL=http://localhost:3000
+NEXT_PUBLIC_AUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your-nextauth-secret
 
 # Google OAuth Credentials

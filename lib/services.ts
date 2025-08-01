@@ -4,7 +4,7 @@ import { User } from "@/db/schema";
 
 const getBaseUrl = () => {
   return (
-    process.env.NEXTAUTH_URL ||
+    process.env.NEXT_PUBLIC_AUTH_URL ||
     (typeof window !== "undefined"
       ? window.location.origin
       : "http://localhost:3001")
@@ -63,7 +63,7 @@ export const getAllUsers = async () => {
 //  get all photos
 export const getAllPhotos = async () => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/photos`, {
       method: "GET",
       headers: {
@@ -86,7 +86,7 @@ export const getAllPhotos = async () => {
 // get all albums
 export const getAllAlbums = async () => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/albums`, {
       method: "GET",
       headers: {
@@ -109,7 +109,7 @@ export const getAllAlbums = async () => {
 // Get user by ID
 export const getUserById = async (userId: string | number) => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/users/${userId}`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const result = await response.json();
@@ -123,7 +123,7 @@ export const getUserById = async (userId: string | number) => {
 // Get albums by user ID
 export const getAlbumsByUserId = async (userId: string | number) => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/albums?userId=${userId}`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     return await response.json();
@@ -136,7 +136,7 @@ export const getAlbumsByUserId = async (userId: string | number) => {
 // Get album by ID
 export const getAlbumById = async (albumId: string | number) => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/albums/${albumId}`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     return await response.json();
@@ -148,7 +148,7 @@ export const getAlbumById = async (albumId: string | number) => {
 
 export const getPhotosByAlbumId = async (albumId: string | number) => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/photos?albumId=${albumId}`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     return await response.json();
@@ -160,7 +160,7 @@ export const getPhotosByAlbumId = async (albumId: string | number) => {
 
 export const getPhotoById = async (photoId: string | number) => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/photos/${photoId}`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     return await response.json();
@@ -175,7 +175,7 @@ export const updatePhoto = async (
   data: { title?: string; url?: string }
 ) => {
   try {
-    const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_AUTH_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/photos/${photoId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
