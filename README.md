@@ -125,7 +125,7 @@ Our platform follows a simple, intuitive workflow designed for seamless photo ma
 ### 2. 👥 **Explore the Community**
 
 - Browse through registered users and their photo collections
-- Discover amazing photographers and their work
+- Discover amazing userss and their work
 - View user profiles with album counts and join dates
 
 ### 3. 📂 **View Albums & Photos**

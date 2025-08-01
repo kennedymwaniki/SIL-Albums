@@ -78,9 +78,9 @@ const page = () => {
                 Discover Other Users
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Browse through our community of photographers and discover
-                amazing albums from other users. See what others are sharing and
-                get inspired by their creativity.
+                Browse through our community of users and discover amazing
+                albums from other users. See what others are sharing and get
+                inspired by their creativity.
               </p>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-center">
