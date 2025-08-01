@@ -7,7 +7,13 @@ const photosRouter = new Hono();
 
 photosRouter.get("/", async (c) => {
   const photos = await db.query.photos.findMany({
-    with: { album: true },
+    with: {
+      album: {
+        with: {
+          user: true,
+        },
+      },
+    },
   });
   return c.json(photos);
 });
@@ -16,6 +22,13 @@ photosRouter.get("/:id", async (c) => {
   const id = Number(c.req.param("id"));
   const photo = await db.query.photos.findFirst({
     where: eq(photos.id, id),
+    with: {
+      album: {
+        with: {
+          user: true,
+        },
+      },
+    },
   });
   return c.json(photo);
 });

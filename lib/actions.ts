@@ -46,6 +46,7 @@ export const updatePhoto = async (
     });
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     revalidatePath("/photos");
+    revalidatePath("users");
     revalidatePath(`/photos/${photoId}`);
     revalidatePath("/albums");
     return await response.json();
