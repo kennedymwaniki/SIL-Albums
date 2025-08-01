@@ -20,8 +20,6 @@ const UserPage = async ({
   console.log("user", user);
 
   const handleABlumCreated = () => {
-    // This function can be used to refresh the albums list after creating a new album
-    // For now, we will just log a message
     console.log("Album created successfully!");
   };
 

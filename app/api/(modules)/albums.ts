@@ -9,7 +9,6 @@ albumsRouter.get("/", async (c) => {
   const userId = c.req.query("userId");
 
   if (userId) {
-    // Filter albums by userId
     const userAlbums = await db.query.albums.findMany({
       where: eq(albums.userId, Number(userId)),
       with: {
@@ -18,7 +17,6 @@ albumsRouter.get("/", async (c) => {
     });
     return c.json(userAlbums);
   } else {
-    // Return all albums
     const allAlbums = await db.query.albums.findMany({
       with: {
         photos: true,
@@ -28,7 +26,6 @@ albumsRouter.get("/", async (c) => {
   }
 });
 albumsRouter.get("/:id", async (c) => {
-  // Logic to fetch album by ID
   const id = Number(c.req.param("id"));
   const album = await db.query.albums.findFirst({
     where: eq(albums.id, id),
@@ -59,7 +56,6 @@ albumsRouter.post("/", async (c) => {
 });
 
 albumsRouter.patch("/:id", async (c) => {
-  // Logic to update an album
   const id = Number(c.req.param("id"));
   const body = await c.req.json();
   const updatedAlbum = await db

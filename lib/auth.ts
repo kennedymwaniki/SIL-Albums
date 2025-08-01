@@ -25,7 +25,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return true;
         }
         try {
-          // Extract first and last name from Google user data
           const nameParts = user.name?.split(" ") || ["User"];
           const firstname = nameParts[0] || "User";
           const lastname =

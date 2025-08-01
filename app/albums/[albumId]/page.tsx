@@ -60,7 +60,7 @@ export default function AlbumPage() {
       setNewTitle("");
       setNewUrl("");
       setShowAdd(false);
-      // Refresh album data to get updated photos
+
       const albumData = await getAlbumById(albumId);
       setAlbum(albumData);
       setPhotos(albumData.photos || []);

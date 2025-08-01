@@ -146,7 +146,6 @@ export const getAlbumById = async (albumId: string | number) => {
   }
 };
 
-// Get photos by album ID
 export const getPhotosByAlbumId = async (albumId: string | number) => {
   try {
     const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
@@ -159,7 +158,6 @@ export const getPhotosByAlbumId = async (albumId: string | number) => {
   }
 };
 
-// Get photo by ID
 export const getPhotoById = async (photoId: string | number) => {
   try {
     const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
@@ -172,7 +170,6 @@ export const getPhotoById = async (photoId: string | number) => {
   }
 };
 
-// Update photo
 export const updatePhoto = async (
   photoId: string | number,
   data: { title?: string; url?: string }
@@ -192,7 +189,6 @@ export const updatePhoto = async (
   }
 };
 
-// Create album
 export const createAlbum = async (data: {
   userId: number;
   title: string;

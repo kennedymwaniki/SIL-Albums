@@ -2,7 +2,6 @@ const page = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-16 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
             How{" "}
@@ -17,9 +16,7 @@ const page = () => {
           </p>
         </div>
 
-        {/* Steps */}
         <div className="space-y-16">
-          {/* Step 1: Sign In */}
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/2">
               <div className="bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">
@@ -72,7 +69,6 @@ const page = () => {
             </div>
           </div>
 
-          {/* Step 2: Explore Users */}
           <div className="flex flex-col md:flex-row-reverse items-center gap-8">
             <div className="md:w-1/2">
               <div className="bg-purple-100 text-purple-600 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mb-4">

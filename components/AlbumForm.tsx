@@ -32,7 +32,7 @@ const AlbumForm = ({ userId }: AlbumFormProps) => {
       setTitle("");
       setDescription("");
 
-      // Refresh the page to show updated data
+
       router.refresh();
     } catch (error) {
       console.error("Error creating album:", error);

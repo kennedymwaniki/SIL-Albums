@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { auth } from "@/lib/auth";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Hono | nextjs",
@@ -21,6 +22,7 @@ export default async function RootLayout({
       <body className="bg-gray-100">
         <Navbar session={session} />
         {children}
+        <Analytics />
       </body>
     </html>
   );

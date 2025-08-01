@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center px-4">
       <div className="max-w-4xl mx-auto text-center">
-        {/* Main Heading */}
         <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight">
           Your Photos,{" "}
           <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
